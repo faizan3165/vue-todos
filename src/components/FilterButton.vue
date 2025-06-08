@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import { TaskFilter } from "../types";
-
 const { filter, currentFilter } = defineProps<{
-  filter: TaskFilter;
-  currentFilter: TaskFilter;
+  filter: string;
+  currentFilter: string;
 }>();
 
 const emits = defineEmits<{
-  setFilter: [filter: TaskFilter];
+  setFilter: [filter: string];
 }>();
 </script>
 

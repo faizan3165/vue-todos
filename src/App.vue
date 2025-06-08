@@ -5,12 +5,12 @@ import TaskForm from "./components/TaskForm.vue";
 import TaskList from "./components/TaskList.vue";
 import FilterButton from "./components/FilterButton.vue";
 
-import type { Task, TaskFilter } from "./types";
+import type { Task } from "./types";
 
 const message = ref("Tasks App");
 const tasks = ref<Task[]>([]);
-const filter = ref<TaskFilter>("all");
-const currentFilter = ref<TaskFilter>("all");
+const filter = ref<string>("all");
+const currentFilter = ref<string>("all");
 
 const completedTasks = computed(() =>
   tasks.value.reduce((total, tasks) => (tasks.done ? total + 1 : total), 0)
@@ -35,7 +35,7 @@ function removeTask(taskId: string) {
   tasks.value = tasks.value.filter((task) => task.id !== taskId);
 }
 
-function setFilter(newFilter: TaskFilter) {
+function setFilter(newFilter: string) {
   filter.value = newFilter;
   currentFilter.value = newFilter;
 }
